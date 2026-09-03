@@ -165,7 +165,7 @@ bgMusic.play().then(() => {
 
         bgMusic.volume = volume;
 
-        if (volume >= 0.18) {
+        if (volume >= 0.50) {
             clearInterval(fadeIn);
         }
 
