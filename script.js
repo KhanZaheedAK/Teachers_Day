@@ -153,9 +153,25 @@ function particleBurst(page, x, y, amount = 50) {
 openGiftBtn.addEventListener("click", function () {
 
     // Start background music
-    bgMusic.volume = 0.18;
-    bgMusic.play();
+    bgMusic.volume = 0;
 
+bgMusic.play().then(() => {
+
+    let volume = 0;
+
+    const fadeIn = setInterval(() => {
+
+        volume += 0.01;
+
+        bgMusic.volume = volume;
+
+        if (volume >= 0.18) {
+            clearInterval(fadeIn);
+        }
+
+    }, 100);
+
+});
     // Stop floating animation
     giftBox.style.animation = "none";
 
